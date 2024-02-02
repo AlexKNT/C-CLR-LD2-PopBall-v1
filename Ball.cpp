@@ -1,13 +1,24 @@
 #include "Ball.h"
 #include <ctime>
 #include <cstdlib>
+#include "gdiplustypes.h"
 using namespace System::Drawing;
 
 void Ball::draw(Graphics^ gfx) {
-    SolidBrush^ brush = gcnew SolidBrush(Color(_color));
-    int radius = _size / 2;
-    gfx->FillEllipse(brush, _x - radius, _y - radius, _size, _size);
+    SolidBrush^ brush = gcnew SolidBrush(_color);
+
+    int centerx = _x - _size / 2; 
+    int centery = _y - _size / 2;
+    int width = _size;
+    int height = _size;
+
+    gfx->FillEllipse(brush, centerx, centery, width, height);
+
+    // Clean up the brush
+    delete brush;
 }
+
+
 
 void Ball::setPos(int x, int y) {
     // Set new position
@@ -37,3 +48,9 @@ Ball::Ball(int frameWidth, int frameHeight) {
     _x = _frameWidth / 2;
     _y = _frameHeight / 2;
 }
+
+Color Ball::setColor(Color color) {
+    _color = color;
+}
+
+Ball* ball;

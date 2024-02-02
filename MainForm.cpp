@@ -6,5 +6,7 @@ int main()
 {
 	Application::EnableVisualStyles();
 	CCLRLD2PopBallv1::MainForm form;
+	ball = new Ball(form.frame->Width, form.frame->Height);
 	Application::Run(% form);
+	delete ball;
 }

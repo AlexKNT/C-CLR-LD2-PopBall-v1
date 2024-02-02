@@ -1,4 +1,6 @@
 #pragma once
+#include "Ball.h"
+#include <cstdlib>
 
 namespace CCLRLD2PopBallv1 {
 
@@ -65,6 +67,10 @@ namespace CCLRLD2PopBallv1 {
 			this->frame->Size = System::Drawing::Size(601, 398);
 			this->frame->TabIndex = 0;
 			this->frame->TabStop = false;
+			this->frame->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::frame_Paint);
+			this->frame->DoubleClick += gcnew System::EventHandler(this, &MainForm::frame_DoubleClick);
+			this->frame->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDown);
+			this->frame->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseMove);
 			// 
 			// MainForm
 			// 
@@ -82,5 +88,23 @@ namespace CCLRLD2PopBallv1 {
 
 		}
 #pragma endregion
+	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+        Graphics^ grp = e->Graphics;
+        grp->FillRectangle(% SolidBrush(Color::White), 0, 0, frame->Width, frame->Height);
+        ball->draw(grp);
+		frame->Invalidate();
+	}
+	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+        ball->setPos(e->X, e->Y);
+		frame->Invalidate();
+	}
+	private: System::Void frame_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		ball->setPos(e->X, e->Y);
+		frame->Invalidate();
+	}
+	private: System::Void frame_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
+		// change the ball color to a random color
+		ball->setColor(Color::FromArgb(rand() % 256, rand() % 256, rand() % 256));
+	}
 	};
 }
