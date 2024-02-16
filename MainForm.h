@@ -100,8 +100,10 @@ namespace CCLRLD2PopBallv1 {
 		frame->Invalidate();
 	}
 	private: System::Void frame_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		ball->setPos(e->X, e->Y);
-		frame->Invalidate();
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+            ball->setPos(e->X, e->Y);
+            frame->Invalidate();
+        }
 	}
 	private: System::Void frame_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
 		int red = rand() % 256;
