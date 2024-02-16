@@ -1,11 +1,10 @@
 #include "Ball.h"
 #include <ctime>
 #include <cstdlib>
-#include "gdiplustypes.h"
 using namespace System::Drawing;
 
 void Ball::draw(Graphics^ gfx) {
-    SolidBrush^ brush = gcnew SolidBrush(_color);
+    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(_color));
 
     int centerx = _x - _size / 2; 
     int centery = _y - _size / 2;
@@ -42,15 +41,16 @@ Ball::Ball(int frameWidth, int frameHeight) {
 
     // Set random size and color
     _size = rand() % 20 + 10; // Random size between 10 and 30
-    _color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256); // Random color
+    _color = rand() % 256; // Random color
 
     // Set initial position to the center of the frame
     _x = _frameWidth / 2;
     _y = _frameHeight / 2;
 }
 
-Color Ball::setColor(Color color) {
+int Ball::setColor(int color) {
     _color = color;
+    return _color;
 }
 
 Ball* ball;

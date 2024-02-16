@@ -1,6 +1,7 @@
 #pragma once
 #include "Ball.h"
 #include <cstdlib>
+#include <stdio.h>
 
 namespace CCLRLD2PopBallv1 {
 
@@ -103,8 +104,11 @@ namespace CCLRLD2PopBallv1 {
 		frame->Invalidate();
 	}
 	private: System::Void frame_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
-		// change the ball color to a random color
-		ball->setColor(Color::FromArgb(rand() % 256, rand() % 256, rand() % 256));
+		int red = rand() % 256;
+		int green = rand() % 254;
+		int blue = rand() % 253;
+		// Convert the RGB values to a single hex integer with the format 0x80RRGGBB and pass the value to SetColor
+		ball->setColor(0x80000000 + red * 0x10000 + green * 0x100 + blue);
 	}
 	};
 }
