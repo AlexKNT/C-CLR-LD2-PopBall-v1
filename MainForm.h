@@ -38,6 +38,10 @@ namespace CCLRLD2PopBallv1 {
 			}
 		}
 	public: System::Windows::Forms::PictureBox^ frame;
+	private: System::Windows::Forms::Timer^ moveTimer;
+	private: System::Windows::Forms::Timer^ drawTimer;
+	public:
+	private: System::ComponentModel::IContainer^ components;
 	protected:
 
 	protected:
@@ -48,7 +52,7 @@ namespace CCLRLD2PopBallv1 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -57,7 +61,10 @@ namespace CCLRLD2PopBallv1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->frame = (gcnew System::Windows::Forms::PictureBox());
+			this->moveTimer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->drawTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -72,6 +79,18 @@ namespace CCLRLD2PopBallv1 {
 			this->frame->DoubleClick += gcnew System::EventHandler(this, &MainForm::frame_DoubleClick);
 			this->frame->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDown);
 			this->frame->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseMove);
+			// 
+			// moveTimer
+			// 
+			this->moveTimer->Enabled = true;
+			this->moveTimer->Interval = 10;
+			this->moveTimer->Tick += gcnew System::EventHandler(this, &MainForm::moveTimer_Tick);
+			// 
+			// drawTimer
+			// 
+			this->drawTimer->Enabled = true;
+			this->drawTimer->Interval = 10;
+			this->drawTimer->Tick += gcnew System::EventHandler(this, &MainForm::drawTimer_Tick);
 			// 
 			// MainForm
 			// 
@@ -112,5 +131,11 @@ namespace CCLRLD2PopBallv1 {
 		// Convert the RGB values to a single hex integer with the format 0x80RRGGBB and pass the value to SetColor
 		ball->setColor(0x80000000 + red * 0x10000 + green * 0x100 + blue);
 	}
-	};
+	private: System::Void moveTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+		ball->move();
+	}
+	private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+    frame->Invalidate();
+	}
+};
 }
