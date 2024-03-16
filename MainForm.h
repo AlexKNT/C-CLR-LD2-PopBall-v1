@@ -21,9 +21,6 @@ namespace CCLRLD2PopBallv1 {
 		MainForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -112,7 +109,6 @@ namespace CCLRLD2PopBallv1 {
         Graphics^ grp = e->Graphics;
         grp->FillRectangle(% SolidBrush(Color::White), 0, 0, frame->Width, frame->Height);
         ball->draw(grp);
-		frame->Invalidate();
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
         ball->setPos(e->X, e->Y);
@@ -135,7 +131,7 @@ namespace CCLRLD2PopBallv1 {
 		ball->move();
 	}
 	private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
-    frame->Invalidate();
+		frame->Invalidate();
 	}
 };
 }
