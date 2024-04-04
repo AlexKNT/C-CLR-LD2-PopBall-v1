@@ -12,7 +12,7 @@ protected:
     int _frameWidth = 0;
     int _frameHeight = 0;
 public:
-    Mover(int frameWidth, int frameHeight, int x, int y); // Constructor with additional parameters
+    Mover(int frameWidth, int frameHeight, int x, int y);
     void setPos(int x, int y) override;
     int getSize();
     float getX();
