@@ -73,9 +73,7 @@ namespace CCLRLD2PopBallv1 {
 			this->frame->TabIndex = 0;
 			this->frame->TabStop = false;
 			this->frame->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::frame_Paint);
-			this->frame->DoubleClick += gcnew System::EventHandler(this, &MainForm::frame_DoubleClick);
 			this->frame->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDown);
-			this->frame->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseMove);
 			// 
 			// moveTimer
 			// 
@@ -107,28 +105,15 @@ namespace CCLRLD2PopBallv1 {
 #pragma endregion
 	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
         Graphics^ grp = e->Graphics;
-        grp->FillRectangle(% SolidBrush(Color::White), 0, 0, frame->Width, frame->Height);
-        ball->draw(grp);
+		grp->FillRectangle(% SolidBrush(Color::White), 0, 0, frame->Width, frame->Height);
+		manager->drawFrame(grp);
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        ball->setPos(e->X, e->Y);
+		manager->add(new Ball(frame->Width, frame->Height, e->X, e->Y));
 		frame->Invalidate();
 	}
-	private: System::Void frame_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
-            ball->setPos(e->X, e->Y);
-            frame->Invalidate();
-        }
-	}
-	private: System::Void frame_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
-		int red = rand() % 256;
-		int green = rand() % 254;
-		int blue = rand() % 253;
-		// Convert the RGB values to a single hex integer with the format 0x80RRGGBB and pass the value to SetColor
-		ball->setColor(0x80000000 + red * 0x10000 + green * 0x100 + blue);
-	}
 	private: System::Void moveTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
-		ball->move();
+		manager->move();
 	}
 	private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		frame->Invalidate();
