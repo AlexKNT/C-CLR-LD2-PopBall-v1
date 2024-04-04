@@ -4,14 +4,12 @@
 
 Mover::Mover(int frameWidth, int frameHeight, int x, int y) : _frameWidth(frameWidth), _frameHeight(frameHeight), _x(x), _y(y)
 {
-    // Seed the random number generator
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    // Set random size and color
-    _size = rand() % 20 + 10; // Random size between 10 and 30
-    _color = rand() % 256;     // Random color
+    _size = rand() % 20 + 10; 
+    _color = rand() % 256;     
 
-    // Set random initial speeds
+
     do
     {
         _dX = (rand() % 21 - 10); // Random value between -10 and 10
@@ -61,8 +59,6 @@ float Mover::getY()
 
 void Mover::interact(PopObject* obj)
 {
-    // Reaction to collision
-    // In this simplified approach, simply reverse the direction after collision
     _dX = -_dX;
     _dY = -_dY;
 }
