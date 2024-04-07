@@ -4,16 +4,16 @@
 
 Mover::Mover(int frameWidth, int frameHeight, int x, int y) : _frameWidth(frameWidth), _frameHeight(frameHeight), _x(x), _y(y)
 {
-    srand(static_cast<unsigned int>(time(nullptr)));
+    _x = static_cast<float>(x);
+    _y = static_cast<float>(y);
 
     _size = rand() % 20 + 10; 
     _color = rand() % 256;     
 
-
     do
     {
-        _dX = (rand() % 21 - 10); // Random value between -10 and 10
-        _dY = (rand() % 21 - 10); // Random value between -10 and 10
+        _dX = static_cast<float>(rand() % 21 - 10); // Random value between -10 and 10
+        _dY = static_cast<float>(rand() % 21 - 10); // Random value between -10 and 10
     } while (_dX == 0 && _dY == 0); // Ensure that both velocities are non-zero
 
     // Ensure that both velocities are non-zero at the same time
@@ -27,19 +27,25 @@ Mover::Mover(int frameWidth, int frameHeight, int x, int y) : _frameWidth(frameW
 void Mover::setPos(int x, int y)
 {
     // Set new position
-    _x = x;
-    _y = y;
+    _x = static_cast<float>(x);
+    _y = static_cast<float>(y);
 
     // Check if the new position is within acceptable limits
-    int radius = _size / 2;
+    int radius = getRadius();
     if (_x - radius < 0)
-        _x = radius;
+        _x = static_cast<float>(radius);
     if (_x + radius > _frameWidth)
-        _x = _frameWidth - radius;
+        _x = static_cast<float>(_frameWidth - radius);
     if (_y - radius < 0)
-        _y = radius;
+        _y = static_cast<float>(radius);
     if (_y + radius > _frameHeight)
-        _y = _frameHeight - radius;
+        _y = static_cast<float>(_frameHeight - radius);
+}
+
+int Mover::getRadius()
+{
+    return _size / 2;
+
 }
 
 int Mover::getSize()

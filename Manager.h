@@ -11,7 +11,7 @@ private:
     PopObject* _popObjects[MAX_OBJECTS];
     int _frameWidth, _frameHeight;
 public:
-    Manager(int frameWidth, int frameHeight);
+    Manager(int frameWidth = 600, int frameHeight = 400);
     ~Manager();
     void add(PopObject* popObject);
     void drawFrame(Graphics^ graphics);

@@ -22,5 +22,6 @@ public:
     float getdY();
     void setSpeed(float dX, float dY);
     void move();
+    int getRadius();
 };
 
