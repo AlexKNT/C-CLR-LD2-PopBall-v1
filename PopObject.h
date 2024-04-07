@@ -8,7 +8,7 @@ public:
     virtual float getX();
     virtual float getY();
     virtual void setPos(int x, int y);
-    virtual int getSize() const;
+    virtual int getSize();
     virtual void draw(Graphics^ graphics);
     virtual float getdX();
     virtual float getdY();

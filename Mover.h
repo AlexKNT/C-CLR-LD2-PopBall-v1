@@ -14,14 +14,14 @@ protected:
 public:
     Mover(int frameWidth, int frameHeight, int x, int y);
     void setPos(int x, int y) override;
-    int getSize();
-    float getX();
-    float getY();
-    void interact(PopObject* obj);
-    float getdX();
-    float getdY();
-    void setSpeed(float dX, float dY);
-    void move();
+    int getSize() override;
+    float getX() override;
+    float getY() override;
+    void interact(PopObject* obj) override;
+    float getdX() override;
+    float getdY() override;
+    void setSpeed(float dX, float dY) override;
+    void move() override;
     int getRadius();
 };
 

@@ -10,5 +10,9 @@ public:
     Rotator(int frameWidth, int frameHeight, int x, int y)
         : Mover(frameWidth, frameHeight, x, y) {}
     void move();
+    float getAlpha();
+    void setAlpha(float alpha);
+    float getDAlpha();
+    void setDAlpha(float dAlpha);
 };
 
