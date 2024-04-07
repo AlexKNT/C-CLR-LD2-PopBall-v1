@@ -4,7 +4,7 @@
 #include <cmath>
 using namespace System::Drawing;
 
-void Triangle::draw(Graphics^ graphics)
+void Triangle::draw(Graphics^ gfx)
 {
     SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(_color));
 
