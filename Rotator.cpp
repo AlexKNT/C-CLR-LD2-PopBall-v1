@@ -20,3 +20,8 @@ float Rotator::getDAlpha() {
 void Rotator::setDAlpha(float dAlpha) {
     _dAlpha = dAlpha;
 }
+
+void Rotator::onWallCollision()
+{
+	_dAlpha = -_dAlpha;
+}

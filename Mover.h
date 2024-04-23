@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "PopObject.h"
 class Mover : public PopObject
 {
@@ -23,5 +23,9 @@ public:
     void setSpeed(float dX, float dY) override;
     void move() override;
     int getRadius();
+    void onWallCollision() override;
+    bool interactable();
+    void followTo(int x, int y); // izmainīt kustības virzienu pie norādītā punkta
+    void followAway(int x, int y); // izmainīt kustības virzienu pretvirzienā no norādītā punkta
 };
 

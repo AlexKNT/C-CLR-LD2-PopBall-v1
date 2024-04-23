@@ -36,6 +36,16 @@ void PopObject::move() {
     //
 }
 
+void PopObject::onWallCollision()
+{
+    //
+}
+
 void PopObject::interact(PopObject* obj) {
     //
+}
+
+bool PopObject::interactable(PopObject* obj)
+{
+    return true;
 }

@@ -110,3 +110,41 @@ void Mover::move()
         _dY = -_dY;
     }
 }
+
+bool Mover::interactable() {
+    return true;
+}
+
+void Mover::followTo(int x, int y)
+{
+    // Calculate the vector from the current position to the target position
+	float dx = x - _x;
+	float dy = y - _y;
+
+	// Calculate the length of the vector
+	float length = sqrt(dx * dx + dy * dy);
+
+	// Normalize the vector
+	dx /= length;
+	dy /= length;
+
+	// Set the new speed
+	setSpeed(dx, dy);
+}
+
+void Mover::followAway(int x, int y)
+{
+	// Calculate the vector from the current position to the target position
+	float dx = _x - x;
+	float dy = _y - y;
+
+	// Calculate the length of the vector
+	float length = sqrt(dx * dx + dy * dy);
+
+	// Normalize the vector
+	dx /= length;
+	dy /= length;
+
+	// Set the new speed
+	setSpeed(dx, dy);
+}

@@ -14,5 +14,6 @@ public:
     void setAlpha(float alpha);
     float getDAlpha();
     void setDAlpha(float dAlpha);
+    void onWallCollision() override;
 };
 

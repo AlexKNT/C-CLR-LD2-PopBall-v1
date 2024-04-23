@@ -8,4 +8,5 @@ class Ball : public Mover
 public:
     Ball(int frameWidth, int frameHeight, int x, int y) : Mover(frameWidth, frameHeight, x, y) {}
     void draw(Graphics^ gfx);
+    void move() override;
 };

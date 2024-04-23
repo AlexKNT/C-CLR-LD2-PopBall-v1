@@ -11,3 +11,12 @@ void Ball::draw(Graphics^ gfx)
     int height = static_cast<int>(_size);
     gfx->FillEllipse(brush, centerx, centery, width, height);
 }
+
+void Ball::move()
+{
+    float slowdownFactor = 0.9f;
+    _dX *= slowdownFactor;
+    _dY *= slowdownFactor;
+
+    Mover::move();
+}

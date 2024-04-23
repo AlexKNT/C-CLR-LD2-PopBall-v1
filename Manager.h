@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "PopObject.h"
 
 using namespace System::Drawing;
@@ -17,6 +17,15 @@ public:
     void drawFrame(Graphics^ graphics);
     void move();
     bool remove(PopObject* popObject);
+    int countOf(const type_info* type);
+    void place(PopObject* popObject);
+    void destroyAll();
+    // atrast kolekcijā vistuvāko figūru pie uzdotas figūras un atgriež tā adresi
+    PopObject* nearest(PopObject * popObject);
+    // atrast kolekcijā vistuvāko figūru ar to pašu tipu kā uzdotai figūrai un atgriež tā adresi
+    PopObject* nearestFriend(PopObject* popObject);
+    // atrast kolekcijā vistuvāko figūru ar tipu, kas nesakrīt ar uzdotas figūras tipu, un atgriež tā adresi
+    PopObject* nearestAlien(PopObject* popObject);
 };
 
 extern Manager* manager;

@@ -1,5 +1,6 @@
 #include "manager.h"
 #include <iostream>
+#include "Explosion.h"
 
 Manager* manager;
 
@@ -60,8 +61,11 @@ void Manager::move() {
                     float dy = _popObjects[i]->getY() - _popObjects[j]->getY();
                     float distance = sqrt(dx * dx + dy * dy);
                     if (distance < _popObjects[i]->getSize() + _popObjects[j]->getSize()) {
-                        _popObjects[i]->interact(_popObjects[j]);
-                        _popObjects[j]->interact(_popObjects[i]);
+                        // Check if objects can interact and exist before interacting
+                        if (_popObjects[i]->interactable(_popObjects[j]) && _popObjects[j]->interactable(_popObjects[i])) {
+                            _popObjects[i]->interact(_popObjects[j]);
+                            _popObjects[j]->interact(_popObjects[i]);
+                        }
                     }
                 }
             }
@@ -78,4 +82,114 @@ bool Manager::remove(PopObject* popObject) {
         }
     }
     return false;
+}
+
+void Manager::destroyAll() {
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i]) {
+            Explosion* explosion = new Explosion(_frameWidth, _frameHeight, _popObjects[i]->getX(), _popObjects[i]->getY());
+
+            // Delete the original object
+            delete _popObjects[i];
+            _popObjects[i] = NULL; // Set the pointer to NULL to avoid dangling pointers
+        }
+    }
+}
+
+PopObject* Manager::nearest(PopObject* popObject)
+{
+    PopObject* nearest = NULL;
+	float minDistance = 9999999;
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i] && _popObjects[i] != popObject) {
+			float dx = _popObjects[i]->getX() - popObject->getX();
+			float dy = _popObjects[i]->getY() - popObject->getY();
+			float distance = sqrt(dx * dx + dy * dy);
+            if (distance < minDistance) {
+				minDistance = distance;
+				nearest = _popObjects[i];
+			}
+		}
+	}
+	return nearest;
+}
+
+PopObject* Manager::nearestFriend(PopObject* popObject)
+{
+	PopObject* nearest = NULL;
+	float minDistance = 9999999;
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i] && _popObjects[i] != popObject && typeid(*_popObjects[i]) == typeid(*popObject)) {
+			float dx = _popObjects[i]->getX() - popObject->getX();
+			float dy = _popObjects[i]->getY() - popObject->getY();
+			float distance = sqrt(dx * dx + dy * dy);
+            if (distance < minDistance) {
+				minDistance = distance;
+				nearest = _popObjects[i];
+			}
+		}
+	}
+	return nearest;
+}
+
+PopObject* Manager::nearestAlien(PopObject* popObject)
+{
+	PopObject* nearest = NULL;
+	float minDistance = 9999999;
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i] && _popObjects[i] != popObject && typeid(*_popObjects[i]) != typeid(*popObject)) {
+			float dx = _popObjects[i]->getX() - popObject->getX();
+			float dy = _popObjects[i]->getY() - popObject->getY();
+			float distance = sqrt(dx * dx + dy * dy);
+            if (distance < minDistance) {
+				minDistance = distance;
+				nearest = _popObjects[i];
+			}
+		}
+	}
+	return nearest;
+}
+
+int Manager::countOf(const type_info* type)
+{
+	int count = 0;
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i] && typeid(*_popObjects[i]) == *type) {
+			count++;
+		}
+	}
+	return count;
+}
+
+void Manager::place(PopObject* popObject) {
+    bool isIntersecting;
+    int x, y;
+
+    do {
+        isIntersecting = false;
+
+        // Generate random position within the frame
+        x = rand() % _frameWidth;
+        y = rand() % _frameHeight;
+
+        // Check if the new object intersects with any existing object
+        for (int i = 0; i < MAX_OBJECTS; i++) {
+            if (_popObjects[i]) {
+                float dx = x - _popObjects[i]->getX();
+                float dy = y - _popObjects[i]->getY();
+                float distance = sqrt(dx * dx + dy * dy);
+
+                if (distance < popObject->getSize() + _popObjects[i]->getSize()) {
+                    isIntersecting = true;
+                    break;
+                }
+            }
+        }
+    } while (isIntersecting);
+
+    // Set the position of the new object
+    popObject->setPos(x, y);
+
+    // Add the new object to the collection
+    add(popObject);
 }
