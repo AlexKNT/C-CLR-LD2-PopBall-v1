@@ -48,6 +48,23 @@ int Mover::getRadius()
 
 }
 
+void Mover::onWallCollision()
+{
+    // Check if the ball hits left or right wall
+    if (_x - getRadius() < 0 || _x + getRadius() > _frameWidth)
+    {
+        // Ball hits left or right wall, change horizontal velocity
+        _dX = -_dX;
+    }
+    // Check if the ball hits top or bottom wall
+    if (_y - getRadius() < 0 || _y + getRadius() > _frameHeight)
+    {
+        // Ball hits top or bottom wall, change vertical velocity
+        _dY = -_dY;
+    }
+}
+
+
 int Mover::getSize()
 {
     return _size;
@@ -109,6 +126,7 @@ void Mover::move()
         // Ball hits top or bottom wall, change vertical velocity
         _dY = -_dY;
     }
+    onWallCollision();
 }
 
 bool Mover::interactable() {
