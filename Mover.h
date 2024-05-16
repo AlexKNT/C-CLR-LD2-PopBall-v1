@@ -7,7 +7,7 @@ protected:
     float _y = 0;
     float _dX = 0;
     float _dY = 0;
-    int _color = 0x78FF0000;
+    int _color = 0xFFFF0000;
     int _size = 0;
     int _frameWidth = 0;
     int _frameHeight = 0;

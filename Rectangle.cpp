@@ -5,7 +5,7 @@
 using namespace System::Drawing;
 
 void Rectangle_::draw(Graphics^ gfx) {
-    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(_color));
+    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(0xFF0000FF));
 
     int left = static_cast<int>(_x - _size / 2);
     int top = static_cast<int>(_y - _size / 2);

@@ -4,7 +4,7 @@
 using namespace System::Drawing;
 
 void Star::draw(Graphics^ gfx) {
-    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(_color));
+    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(0xFFFF2040));
 
     PointF center = PointF(_x, _y);
     float radius = _size / 2;

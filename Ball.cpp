@@ -3,7 +3,7 @@ using namespace System::Drawing;
 
 void Ball::draw(Graphics^ gfx)
 {
-    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(_color));
+    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(0xFFFF0000));
 
     int centerx = static_cast<int>(_x - _size / 2);
     int centery = static_cast<int>(_y - _size / 2);
@@ -14,9 +14,10 @@ void Ball::draw(Graphics^ gfx)
 
 void Ball::move()
 {
-    float slowdownFactor = 0.9f;
+    float slowdownFactor = 0.99f;
     _dX *= slowdownFactor;
     _dY *= slowdownFactor;
 
     Mover::move();
 }
+
