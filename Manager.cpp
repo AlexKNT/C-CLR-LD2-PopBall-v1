@@ -52,11 +52,12 @@ void Manager::move() {
             _popObjects[i]->move();
         }
     }
+
     // Check for collisions and interact
     for (int i = 0; i < MAX_OBJECTS; i++) {
         if (_popObjects[i]) {
             for (int j = i + 1; j < MAX_OBJECTS; j++) {
-                if (_popObjects[j]) {
+                if (_popObjects[j] && _popObjects[i]) {
                     float dx = _popObjects[i]->getX() - _popObjects[j]->getX();
                     float dy = _popObjects[i]->getY() - _popObjects[j]->getY();
                     float distance = sqrt(dx * dx + dy * dy);
@@ -65,10 +66,28 @@ void Manager::move() {
                         if (_popObjects[i]->interactable(_popObjects[j]) && _popObjects[j]->interactable(_popObjects[i])) {
                             _popObjects[i]->interact(_popObjects[j]);
                             _popObjects[j]->interact(_popObjects[i]);
+
+                            // Increment the interaction count for both objects
+                            _popObjects[i]->interactionCount++;
+                            _popObjects[j]->interactionCount++;
                         }
                     }
                 }
             }
+        }
+    }
+
+    // Check for objects that have interacted with at least two other objects and explode them
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i] && _popObjects[i]->interactionCount >= 2) {
+            // Create an explosion at the position of the object
+            Explosion* explosion = new Explosion(_frameWidth, _frameHeight, _popObjects[i]->getX(), _popObjects[i]->getY());
+
+            // Add the explosion to the manager
+            add(explosion);
+
+            // Delete the original object
+            remove(_popObjects[i]);
         }
     }
 }

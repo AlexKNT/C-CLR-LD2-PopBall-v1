@@ -5,10 +5,11 @@ using namespace System::Drawing;
 class PopObject abstract
 {
 public:
+    int interactionCount = 0;
     virtual ~PopObject() {}
     virtual float getX();
     virtual float getY();
-    virtual void setPos(int x, int y) = 0;
+    virtual void setPos(int x, int y);
     virtual int getSize();
     virtual void draw(Graphics^ graphics);
     virtual float getdX();

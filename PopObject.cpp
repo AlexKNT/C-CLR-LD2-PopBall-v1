@@ -49,3 +49,4 @@ bool PopObject::interactable(PopObject* obj)
 {
     return true;
 }
+
