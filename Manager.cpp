@@ -45,6 +45,19 @@ void Manager::drawFrame(Graphics^ graphics) {
     }
 }
 
+void Manager::removeExplosions() {
+    for (int i = 0; i < MAX_OBJECTS; i++) {
+        if (_popObjects[i]) {
+            // Check if the object is an explosion and marked for deletion
+            Explosion* explosion = dynamic_cast<Explosion*>(_popObjects[i]);
+            if (explosion && explosion->isMarkedForDeletion()) {
+                delete _popObjects[i];
+                _popObjects[i] = nullptr;
+            }
+        }
+    }
+}
+
 void Manager::move() {
     // Move all objects
     for (int i = 0; i < MAX_OBJECTS; i++) {
@@ -90,6 +103,8 @@ void Manager::move() {
             remove(_popObjects[i]);
         }
     }
+
+    removeExplosions();
 }
 
 bool Manager::remove(PopObject* popObject) {
@@ -212,3 +227,4 @@ void Manager::place(PopObject* popObject) {
     // Add the new object to the collection
     add(popObject);
 }
+

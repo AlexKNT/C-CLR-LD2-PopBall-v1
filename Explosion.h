@@ -17,6 +17,6 @@ public:
 private:
     float _maxLifetime; // Maximum lifetime of the explosion
     float _lifetime;    // Current remaining lifetime of the explosion
-    bool _markedForDeletion; // Flag indicating if the explosion is marked for deletion
+    bool _markedForDeletion = false; // Flag indicating if the explosion is marked for deletion
 };
 

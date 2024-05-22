@@ -23,6 +23,7 @@ public:
     PopObject* nearest(PopObject * popObject);
     PopObject* nearestFriend(PopObject* popObject);
     PopObject* nearestAlien(PopObject* popObject);
+    void removeExplosions();
 };
 
 extern Manager* manager;

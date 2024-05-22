@@ -3,7 +3,7 @@
 #include <cmath>
 #include <algorithm>
 
-constexpr float FADE_OUT_RATE = 0.1f;
+constexpr float FADE_OUT_RATE = 0.002f;
 
 void Explosion::move()
 {
