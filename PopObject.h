@@ -19,4 +19,6 @@ public:
     virtual void onWallCollision();
     virtual void interact(PopObject* obj);
     virtual bool interactable(PopObject* obj);
+
+    virtual void doCommand(char command);
 };

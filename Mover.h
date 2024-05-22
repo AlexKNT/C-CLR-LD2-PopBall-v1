@@ -27,5 +27,8 @@ public:
     bool interactable();
     void followTo(int x, int y); // izmainīt kustības virzienu pie norādītā punkta
     void followAway(int x, int y); // izmainīt kustības virzienu pretvirzienā no norādītā punkta
+
+    bool interactable(PopObject* obj);
+    void doCommand(char command);
 };
 

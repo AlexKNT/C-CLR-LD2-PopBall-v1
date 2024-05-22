@@ -121,8 +121,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Mover.cpp" />
@@ -130,11 +133,15 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Rotator.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="Hunter.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -144,6 +151,7 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
