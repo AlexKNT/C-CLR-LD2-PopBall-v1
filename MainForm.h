@@ -6,7 +6,13 @@
 #include "Triangle.h"
 #include "Star.h"
 #include "Manager.h"
+
 #include "House.h"
+#include "Pig.h"
+#include "Grass.h"
+#include "Fence.h"
+#include "Bear.h"
+#include "Tree.h"
 
 
 namespace CCLRLD2PopBallv1 {
@@ -43,6 +49,7 @@ namespace CCLRLD2PopBallv1 {
 			}
 
 		}
+	
 	public: System::Windows::Forms::PictureBox^ frame;
 	private: System::Windows::Forms::Timer^ moveTimer;
 	private: System::Windows::Forms::Timer^ drawTimer;
@@ -186,6 +193,10 @@ namespace CCLRLD2PopBallv1 {
 			this->ResumeLayout(false);
 
 		}
+
+		public:
+			void startGame();
+			void endGame(int reason);
 #pragma endregion
 	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
         Graphics^ grp = e->Graphics;
@@ -211,5 +222,6 @@ namespace CCLRLD2PopBallv1 {
 	private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		frame->Invalidate();
 	}
+
 };
 }
