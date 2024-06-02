@@ -47,6 +47,11 @@ void PopObject::interact(PopObject* obj) {
 
 bool PopObject::interactable(PopObject* obj)
 {
-    return true;
+    return false;
+}
+
+void PopObject::doCommand(char command)
+{
+    //
 }
 

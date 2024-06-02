@@ -166,3 +166,13 @@ void Mover::followAway(int x, int y)
 	// Set the new speed
 	setSpeed(dx, dy);
 }
+
+bool Mover::interactable(PopObject* obj)
+{
+    return true;
+}
+
+void Mover::doCommand(char command)
+{
+    //
+}
