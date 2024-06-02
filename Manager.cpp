@@ -34,7 +34,8 @@ void Manager::add(PopObject* popObject) {
 
 void Manager::drawFrame(Graphics^ graphics) {
     // Clear background
-    graphics->Clear(Color::White);
+    graphics->Clear(Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+        static_cast<System::Int32>(static_cast<System::Byte>(128))));
     // Draw frame rectangle
     graphics->DrawRectangle(Pens::Black, 0, 0, _frameWidth, _frameHeight);
     // Draw all objects

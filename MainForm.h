@@ -6,6 +6,7 @@
 #include "Triangle.h"
 #include "Star.h"
 #include "Manager.h"
+#include "House.h"
 
 
 namespace CCLRLD2PopBallv1 {
@@ -23,9 +24,11 @@ namespace CCLRLD2PopBallv1 {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
+		static MainForm^ form;
 		MainForm(void)
 		{
 			InitializeComponent();
+			form = this;
 		}
 
 	protected:
@@ -38,6 +41,7 @@ namespace CCLRLD2PopBallv1 {
 			{
 				delete components;
 			}
+
 		}
 	public: System::Windows::Forms::PictureBox^ frame;
 	private: System::Windows::Forms::Timer^ moveTimer;
@@ -85,6 +89,8 @@ namespace CCLRLD2PopBallv1 {
 			// 
 			// frame
 			// 
+			this->frame->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)));
 			this->frame->Location = System::Drawing::Point(12, 12);
 			this->frame->Name = L"frame";
 			this->frame->Size = System::Drawing::Size(600, 400);
@@ -167,8 +173,8 @@ namespace CCLRLD2PopBallv1 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(746, 422);
-			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->frame);
+			this->Controls->Add(this->groupBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->KeyPreview = true;
 			this->Name = L"MainForm";
@@ -183,7 +189,8 @@ namespace CCLRLD2PopBallv1 {
 #pragma endregion
 	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
         Graphics^ grp = e->Graphics;
-		grp->FillRectangle(% SolidBrush(Color::White), 0, 0, frame->Width, frame->Height);
+		grp->FillRectangle(% SolidBrush(Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			static_cast<System::Int32>(static_cast<System::Byte>(128)))), 0, 0, frame->Width, frame->Height);
 		manager->drawFrame(grp);
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {

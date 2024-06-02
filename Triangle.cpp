@@ -6,7 +6,7 @@ using namespace System::Drawing;
 
 void Triangle::draw(Graphics^ gfx)
 {
-    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(0xFF00FF00));
+    SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(0xFF000000));
 
     // Define triangle points relative to its center
     array<PointF>^ points = gcnew array<PointF>(3);

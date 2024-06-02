@@ -158,6 +158,7 @@
     </ClInclude>
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Mover.h" />
+    <ClInclude Include="Pictures.h" />
     <ClInclude Include="Pig.h" />
     <ClInclude Include="PopObject.h" />
     <ClInclude Include="Rectangle.h" />
