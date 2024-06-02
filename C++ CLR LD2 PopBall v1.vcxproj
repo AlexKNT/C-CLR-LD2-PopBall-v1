@@ -123,12 +123,18 @@
   <ItemGroup>
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Bear.cpp" />
+    <ClCompile Include="Bobr.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="Fence.cpp" />
+    <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="House.cpp" />
     <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Mover.cpp" />
+    <ClCompile Include="Pig.cpp" />
     <ClCompile Include="PopObject.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Rotator.cpp" />
@@ -139,14 +145,20 @@
   <ItemGroup>
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Bear.h" />
+    <ClInclude Include="Bobr.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="Fence.h" />
+    <ClInclude Include="Grass.h" />
+    <ClInclude Include="House.h" />
     <ClInclude Include="Hunter.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Mover.h" />
+    <ClInclude Include="Pig.h" />
     <ClInclude Include="PopObject.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Rotator.h" />
@@ -158,6 +170,25 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pictures.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Desktop\pics\bobr32.png" />
+    <Image Include="..\..\..\Desktop\pics\bobr64.png" />
+    <Image Include="..\..\..\Desktop\pics\dom32.png" />
+    <Image Include="..\..\..\Desktop\pics\dom64.png" />
+    <Image Include="..\..\..\Desktop\pics\farm32.png" />
+    <Image Include="..\..\..\Desktop\pics\farm64.png" />
+    <Image Include="..\..\..\Desktop\pics\grass32.png" />
+    <Image Include="..\..\..\Desktop\pics\grass64.png" />
+    <Image Include="..\..\..\Desktop\pics\hru32.png" />
+    <Image Include="..\..\..\Desktop\pics\hru64.png" />
+    <Image Include="..\..\..\Desktop\pics\miha32.png" />
+    <Image Include="..\..\..\Desktop\pics\miha64.png" />
+    <Image Include="..\..\..\Desktop\pics\tree32.png" />
+    <Image Include="..\..\..\Desktop\pics\tree64.png" />
+    <Image Include="..\..\..\Desktop\pics\zabr32.png" />
+    <Image Include="..\..\..\Desktop\pics\zabr64.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

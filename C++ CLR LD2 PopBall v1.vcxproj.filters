@@ -57,6 +57,24 @@
     <ClCompile Include="Hunter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bobr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bear.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="House.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainForm.h">
@@ -101,5 +119,78 @@
     <ClInclude Include="Hunter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bobr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bear.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="House.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pictures.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Desktop\pics\bobr32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\bobr64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\dom32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\dom64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\farm32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\farm64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\grass32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\grass64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\hru32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\hru64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\miha32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\miha64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\tree32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\tree64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\zabr32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\pics\zabr64.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
